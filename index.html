@@ -3,77 +3,73 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>KOLEKSI MISZACKSON</title>
   <style>
     * { box-sizing: border-box; }
     body {
       margin: 0;
-      background: #101116;
-      color: white;
       font-family: Arial, sans-serif;
+      background: #10111a;
+      color: white;
     }
     header {
       padding: 22px;
-      background: #191a22;
-      border-bottom: 1px solid #30313b;
       text-align: center;
+      background: #191b2a;
+      border-bottom: 1px solid #303244;
+      font-size: 22px;
+      font-weight: bold;
     }
-    header h1 { margin: 0; font-size: 24px; }
-    main { max-width: 1000px; margin: 35px auto; padding: 0 18px; }
-    .welcome {
-      padding: 25px;
-      background: #1b1c26;
-      border-radius: 12px;
-      text-align: center;
+    main {
+      max-width: 900px;
+      margin: 35px auto;
+      padding: 0 16px;
     }
-    .video-box {
-      margin-top: 25px;
-      padding: 30px 15px;
-      background: #1b1c26;
-      border: 1px solid #30313b;
-      border-radius: 12px;
-      text-align: center;
+    .welcome, .video-box {
+      background: #1b1d2b;
+      border: 1px solid #303244;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 22px;
     }
-    video {
-      display: block;
+    .welcome { text-align: center; }
+    h2 { margin-top: 0; }
+    .player {
       width: 100%;
-      max-height: 500px;
-      background: black;
-      border-radius: 8px;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      border-radius: 10px;
+      background: #000;
     }
-    .note { color: #b8bac8; line-height: 1.6; }
     footer {
-      padding: 25px;
-      color: #b8bac8;
       text-align: center;
+      color: #aeb4ce;
+      padding: 25px;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>▶ KOLEKSI MISZACKSON</h1>
-  </header>
+  <header>▶ KOLEKSI MISZACKSON</header>
 
   <main>
     <section class="welcome">
       <h2>Selamat Datang!</h2>
-      <p class="note">Koleksi video pilihan untuk kamu.</p>
+      <p>Koleksi video pilihan untuk kamu.</p>
     </section>
 
     <section class="video-box">
       <h2>Pemutar Video</h2>
-      <p class="note">
-        Video akan ditampilkan di sini setelah tautan video ditambahkan.
-      </p>
-      <video controls playsinline preload="metadata">
-        <source src="" type="video/mp4">
-        Browser kamu tidak mendukung pemutar video.
-      </video>
+      <p>Video pilihan:</p>
+      <iframe
+        class="player"
+        src="https://drive.google.com/file/d/1gi4SqjSr3RC_EMi_ufVV7GdMSgCwcZ3w/preview"
+        allow="autoplay; fullscreen"
+        allowfullscreen>
+      </iframe>
     </section>
   </main>
 
   <footer>© KOLEKSI MISZACKSON</footer>
 </body>
 </html>
-
