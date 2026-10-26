@@ -149,7 +149,57 @@ footer {
   border-radius: 10px;
   background: #000;
 }
+.video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
 
+.video-modal[hidden] {
+  display: none;
+}
+
+.video-modal-content {
+  position: relative;
+  width: min(100%, 1100px);
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border: 1px solid #00d9ff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.video-modal-content iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.close-video {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: #ff3b81;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .video-modal {
+    padding: 8px;
+  }
+}
   </style>
 </head>
 <body>
@@ -166,20 +216,46 @@ footer {
   <p>Pilih video yang ingin kamu tonton.</p>
 
   <div class="video-grid">
-    <div class="video-card">
-      <h3>Video 1</h3>
-      <iframe
-  src="https://drive.google.com/file/d/1gi4SqjSr3RC_EMi_ufVV7GdMSgCwcZ3w/preview"
-  width="100%"
-  style="aspect-ratio:16/9; border:0; border-radius:12px;"
-  allow="autoplay; fullscreen"
-  allowfullscreen>
-</iframe>
-    </div>
+<div class="video-card">
+  <div class="video-thumbnail" onclick="openVideo()">
+    <img
+      src="https://drive.google.com/thumbnail?id=1gi4SqjSr3RC_EMi_ufVV7GdMSgCwcZ3w&sz=w800"
+      alt="Video 1">
+    <button class="play-button" type="button">▶</button>
+  </div>
+  <h3>Video 1</h3>
+</div>
   </div>
 </section>
+  <div id="videoModal" class="video-modal" hidden>
+  <div class="video-modal-content">
+    <button class="close-video" onclick="closeVideo()" type="button">✕</button>
+    <iframe
+      id="mainVideoPlayer"
+      src=""
+      allow="autoplay; fullscreen"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
   </main>
 
   <footer>© KOLEKSI MISZACKSON</footer>
+  
+<script>
+const videoModal = document.getElementById("videoModal");
+const mainVideoPlayer = document.getElementById("mainVideoPlayer");
+
+function openVideo() {
+  videoModal.hidden = false;
+  mainVideoPlayer.src =
+    "https://drive.google.com/file/d/1gi4SqjSr3RC_EMi_ufVV7GdMSgCwcZ3w/preview";
+}
+
+function closeVideo() {
+  videoModal.hidden = true;
+  mainVideoPlayer.src = "";
+}
+</script>
 </body>
 </html>
